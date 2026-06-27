@@ -1,7 +1,7 @@
 export const catalogData = [
   {
     id: 1,
-    image: '/public/images/image_1.png',
+    image: '/images/image_1.png',
     currentDateLabel: 'Today',
     currentDateISO: '2016-08-09',
     postedDateLabel: '9-08-2016',
@@ -15,7 +15,7 @@ export const catalogData = [
   },
   {
     id: 2,
-    image: '/public/images/image_2.png',
+    image: '/images/image_2.png',
     currentDateLabel: 'Today',
     currentDateISO: '2016-08-09',
     postedDateLabel: '8-08-2016',
@@ -29,7 +29,7 @@ export const catalogData = [
   },
   {
     id: 3,
-    image: '/public/images/image_3.png',
+    image: '/images/image_3.png',
     currentDateLabel: 'Today',
     currentDateISO: '2016-08-09',
     postedDateLabel: '7-08-2016',
@@ -43,7 +43,7 @@ export const catalogData = [
   },
   {
     id: 4,
-    image: '/public/images/image_4.png',
+    image: '/images/image_4.png',
     currentDateLabel: 'Today',
     currentDateISO: '2016-08-09',
     postedDateLabel: '6-08-2016',
@@ -57,7 +57,7 @@ export const catalogData = [
   },
   {
     id: 5,
-    image: '/public/images/image_5.png',
+    image: '/images/image_5.png',
     currentDateLabel: 'Today',
     currentDateISO: '2016-08-09',
     postedDateLabel: '5-08-2016',
@@ -71,7 +71,7 @@ export const catalogData = [
   },
   {
     id: 6,
-    image: '/public/images/image_6.png',
+    image: '/images/image_6.png',
     currentDateLabel: 'Today',
     currentDateISO: '2016-08-09',
     postedDateLabel: '4-08-2016',
@@ -85,7 +85,7 @@ export const catalogData = [
   },
   {
     id: 7,
-    image: '/public/images/image_7.png',
+    image: '/images/image_7.png',
     currentDateLabel: 'Today',
     currentDateISO: '2016-08-09',
     postedDateLabel: '3-08-2016',
@@ -99,7 +99,7 @@ export const catalogData = [
   },
   {
     id: 8,
-    image: '/public/images/image_8.png',
+    image: '/images/image_8.png',
     currentDateLabel: 'Today',
     currentDateISO: '2016-08-09',
     postedDateLabel: '2-08-2016',
