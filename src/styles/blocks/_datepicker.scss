@@ -1,0 +1,124 @@
+@use "../variables" as *;
+
+.air-datepicker {
+  --adp-font-family: #{$font-primary};
+  --adp-color: #333437;
+  --adp-color-secondary: #{$color-text-secondary};
+  --adp-accent-color: #{$color-accent};
+  --adp-color-current-date: #333437;
+  --adp-color-other-month: #{$color-text-secondary};
+  --adp-color-other-month-hover: #333437;
+  --adp-day-name-color: #{$color-black};
+  --adp-day-name-color-hover: #{$color-black};
+  --adp-border-radius: 2px;
+  --adp-border-color: #{$color-border};
+  --adp-border-color-inner: transparent;
+  --adp-nav-arrow-color: #333437;
+  --adp-nav-color-secondary: #{$color-black};
+  --adp-nav-action-size: 14px;
+  --adp-nav-height: 28px;
+  --adp-btn-color: #{$color-black};
+  --adp-btn-background-color-hover: #f4f4f4;
+  --adp-background-color-hover: #f4f4f4;
+  --adp-background-color-active: #f4f4f4;
+  --adp-background-color-selected-other-month: #{$color-accent};
+  --adp-background-color-selected-other-month-focused: #{$color-accent};
+  --adp-cell-background-color-hover: #f4f4f4;
+  --adp-cell-background-color-selected: #{$color-accent};
+  --adp-cell-background-color-selected-hover: #{$color-accent};
+  --adp-color-active: #{$color-white};
+  --adp-font-size: 13px;
+  --adp-width: 201px;
+  --adp-padding: 12px;
+  --adp-day-cell-height: 23px;
+  --adp-day-cell-width: 23px;
+  --adp-pointer-size: 8px;
+  --adp-pointer-offset: 24px;
+  --adp-cell-border-radius: 2px;
+  border: 1px solid $color-border;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+
+  &-nav {
+    padding: 8px 12px 4px;
+    min-height: auto;
+    border-bottom: 0;
+  }
+
+  &-nav--action {
+    width: 14px;
+    height: 14px;
+    border-radius: 0;
+
+    &:hover,
+    &:active {
+      background: transparent;
+    }
+
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    path {
+      fill: #333437;
+      stroke: none;
+    }
+  }
+
+  &-nav--title {
+    padding: 0;
+    font-weight: 700;
+    font-size: 14px;
+    color: $color-black;
+    pointer-events: none;
+
+    &:hover,
+    &:active {
+      background: transparent;
+    }
+
+    i {
+      font-style: normal;
+      color: $color-black;
+      margin-left: 0.25em;
+    }
+  }
+
+  &-body--day-names {
+    margin: 4px 0 2px;
+    grid-template-columns: repeat(7, 23px);
+    justify-content: space-between;
+  }
+
+  &-body--day-name {
+    font-weight: 700;
+    font-size: 13px;
+    color: $color-black;
+    text-transform: none;
+  }
+
+  &-body--cells.-days- {
+    grid-template-columns: repeat(7, 23px);
+    justify-content: space-between;
+    row-gap: 2px;
+  }
+
+  &-cell.-day- {
+    font-size: 13px;
+    font-weight: 400;
+
+    &.-other-month- {
+      color: $color-text-secondary;
+    }
+
+    &.-focus-:not(.-selected-) {
+      background: #f4f4f4;
+      color: #333437;
+    }
+
+    &.-selected- {
+      color: $color-white;
+      font-weight: 400;
+    }
+  }
+}

@@ -1,0 +1,283 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.catalog {
+  display: grid;
+  gap: $card-gap;
+  width: 100%;
+  min-width: 0;
+
+  &--tiles {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    @media (max-width: 800px) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @media (max-width: 420px) {
+      grid-template-columns: 1fr;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      min-height: $card-height-tile;
+      background: $color-white-dark;
+
+      &__image {
+        width: 100%;
+        max-height: $card-height-tile;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        background: $color-placeholder;
+      }
+
+      &__body {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        gap: 7px;
+        padding: 12px 12px 18px;
+
+        @media (max-width: 868px) {
+          gap: 16px;
+        }
+      }
+
+      &__row--dates,
+      &__row--stats {
+        display: flex;
+        gap: 8px;
+
+        > * {
+          flex: 1;
+          min-width: 0;
+        }
+      }
+
+      &__row--footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+        margin-top: auto;
+        @media (max-width: 800px) {
+          justify-content: flex-end;
+        }
+      }
+    }
+  }
+
+  &--rows {
+    gap: 8px;
+
+    .card {
+      display: grid;
+      grid-template-columns: $card-image-row minmax(0, 30px) minmax(
+          0,
+          1fr
+        ) minmax(0, 1fr) minmax(0, 1fr);
+      grid-template-rows: auto auto;
+      row-gap: 11px;
+      align-items: start;
+      width: 100%;
+      min-width: 0;
+      min-height: $card-height-row;
+      background: $color-white-dark;
+
+      @media (max-width: $breakpoint-rows-stack) {
+        grid-template-columns: $card-image-row minmax(0, 16px) minmax(
+            0,
+            1fr
+          ) minmax(0, 1fr);
+        padding: 12px 0;
+      }
+
+      @media (max-width: 520px) {
+        grid-template-columns: $card-image-row 12px 1fr;
+        grid-template-rows: auto;
+        row-gap: 0;
+        align-items: stretch;
+        height: $card-image-row;
+        min-height: $card-image-row;
+        max-height: $card-image-row;
+        padding: 0;
+      }
+
+      &__image {
+        grid-column: 1;
+        grid-row: 1 / -1;
+        width: $card-image-row;
+        height: $card-image-row;
+        object-fit: cover;
+        background: $color-placeholder;
+
+        @media (max-width: 520px) {
+          grid-row: 1;
+        }
+      }
+
+      &__body {
+        grid-column: 3 / -1;
+        grid-row: 1 / -1;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+        grid-template-rows: auto auto;
+        row-gap: 11px;
+        align-items: center;
+        min-width: 0;
+        margin: auto 0;
+        @media (max-width: $breakpoint-rows-stack) {
+          grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+          grid-template-rows: auto auto auto auto;
+        }
+
+        @media (min-width: 521px) and (max-width: ($breakpoint-rows-stack - 1px)) {
+          grid-template-rows: auto auto auto;
+        }
+
+        @media (max-width: 520px) {
+          grid-column: 3;
+          grid-row: 1;
+          grid-template-columns: 1fr auto;
+          grid-template-rows: auto auto 1fr;
+          height: $card-image-row;
+          min-height: $card-image-row;
+          row-gap: 8px;
+          align-items: start;
+          padding: 8px 8px 4px 0;
+        }
+      }
+
+      &__row--dates {
+        grid-column: 1 / 3;
+        grid-row: 1;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+
+        @media (max-width: $breakpoint-rows-stack) {
+          grid-column: 1 / -1;
+          grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        }
+
+        @media (max-width: 520px) {
+          grid-column: 1 / -1;
+          grid-row: 1;
+          grid-template-columns: 1fr auto;
+        }
+      }
+
+      &__row--stats {
+        grid-column: 1 / 3;
+        grid-row: 2;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+
+        @media (max-width: $breakpoint-rows-stack) {
+          grid-column: 1 / -1;
+          grid-row: 2;
+          grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        }
+
+        @media (max-width: 520px) {
+          grid-column: 1 / -1;
+          grid-row: 2;
+          grid-template-columns: 1fr auto;
+        }
+      }
+
+      &__row--footer {
+        grid-column: 3;
+        grid-row: 1 / -1;
+        display: grid;
+        grid-template-rows: auto auto;
+        row-gap: 11px;
+        align-content: start;
+
+        @media (max-width: $breakpoint-rows-stack) {
+          grid-column: 1 / -1;
+          grid-row: 3 / -1;
+        }
+
+        @media (min-width: 521px) and (max-width: ($breakpoint-rows-stack - 1px)) {
+          grid-row: 3;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: flex-end;
+          gap: 8px;
+
+          .card__label,
+          .card__date--upload {
+            white-space: nowrap;
+            flex-shrink: 0;
+          }
+        }
+
+        @media (max-width: 520px) {
+          grid-column: 2;
+          grid-row: 3;
+          align-self: end;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: flex-end;
+          gap: 8px;
+        }
+      }
+
+      &__stats--current,
+      &__stats--posted {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 22px;
+
+        @media (max-width: $breakpoint-rows-stack) {
+          gap: 16px;
+        }
+
+        @media (max-width: 520px) {
+          gap: 12px;
+        }
+      }
+
+      &__date,
+      &__label,
+      &__stats {
+        min-width: 0;
+      }
+
+      &__date--upload {
+        font-size: 14px;
+        text-align: left;
+      }
+
+      @media (max-width: 520px) {
+        &__date--posted {
+          text-align: right;
+        }
+
+        &__stats--posted {
+          justify-self: end;
+        }
+
+        &__label {
+          font-size: 14px;
+          font-weight: 400;
+          white-space: nowrap;
+        }
+
+        &__date--upload {
+          font-size: 14px;
+          text-align: right;
+        }
+      }
+
+      &__stat {
+        gap: 6px;
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+@use "../variables" as *;
+
+.page {
+  &__decor {
+    position: fixed;
+    z-index: 0;
+    pointer-events: none;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    &--tl {
+      top: 0;
+      left: 0;
+      width: min(689px, 90vw);
+      height: min(482px, 55vh);
+      background-image: url("/images/decor_1.png");
+      background-position: top left;
+
+      @media (max-width: 600px) {
+        top: -60px;
+        left: -80px;
+      }
+    }
+
+    &--br {
+      right: 0;
+      bottom: 41px;
+      width: min(315px, 50vw);
+      height: min(368px, 45vh);
+      background-image: url("/images/decor_2.png");
+      background-position: bottom right;
+
+      @media (max-width: 600px) {
+        right: -60px;
+        bottom: 40px;
+        width: 200px;
+        height: 220px;
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.card {
+  &__date {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1;
+    white-space: nowrap;
+
+    &--upload {
+      font-size: 12px;
+      text-align: right;
+    }
+  }
+
+  &__stats {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    @media (max-width: 520px) {
+      // flex-direction: row;
+    }
+  }
+
+  &__stat {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  &__count {
+    @include stat-text;
+  }
+
+  &__icon {
+    @include icon-mask("/assets/icons/heart.svg");
+
+    &--comment {
+      @include icon-mask("/assets/icons/comment.svg");
+    }
+  }
+
+  &__label {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+  }
+}
+
+.catalog {
+  &--rows .card__date--upload {
+    font-size: 14px;
+    text-align: left;
+  }
+}

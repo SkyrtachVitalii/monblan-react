@@ -1,0 +1,43 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.view-switcher {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  width: 100%;
+  min-width: 0;
+  margin-bottom: 24px;
+
+  &__btn {
+    width: 22px;
+    height: 22px;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    opacity: 0.45;
+    transition: opacity 0.2s ease;
+
+    &--active {
+      opacity: 1;
+    }
+
+    &--tiles {
+      @include view-icon-grid($color-accent);
+
+      &:not(.view-switcher__btn--active) {
+        @include view-icon-grid(#c8c8c8);
+      }
+    }
+
+    &--rows {
+      @include view-icon-list($color-accent);
+
+      &:not(.view-switcher__btn--active) {
+        @include view-icon-list(#c8c8c8);
+      }
+    }
+  }
+}

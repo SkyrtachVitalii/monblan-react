@@ -1,0 +1,130 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.header {
+  min-height: $header-height;
+  position: relative;
+  z-index: 2;
+  padding: 6px 0 24px;
+  background: $color-header-glass;
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.12),
+    inset 0 12px 24px rgba(0, 0, 0, 0.12);
+
+  @media (max-width: ($breakpoint-header)) {
+    min-height: auto;
+    padding-bottom: 20px;
+  }
+
+  &__container {
+    max-width: $header-container-width;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: $logo-size 1fr;
+    align-items: center;
+
+    @media (max-width: ($breakpoint-header)) {
+      grid-template-columns: auto 1fr;
+      column-gap: clamp(8px, 2.5vw, 16px);
+      padding-inline: $container-gutter;
+    }
+  }
+
+  &__logo {
+    width: $logo-size;
+    height: $logo-size;
+    object-fit: contain;
+
+    @media (max-width: ($breakpoint-header)) {
+      width: $logo-size-mobile;
+      height: $logo-size-mobile;
+    }
+  }
+
+  &__content {
+    display: grid;
+    align-content: start;
+    gap: 12px;
+    min-width: 0;
+    padding-left: $header-content-offset;
+
+    @media (max-width: ($breakpoint-header)) {
+      padding-left: 0;
+    }
+  }
+
+  &__title-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 16px;
+    @media (max-width: ($breakpoint-header-mobile)) {
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+    }
+  }
+
+  &__title {
+    font-family: $font-logo;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.24px;
+  }
+
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 135px;
+    height: 28px;
+    padding: 0 12px;
+    border: 1px solid $color-accent;
+    border-radius: 2px;
+    font-family: $font-primary;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.39px;
+    color: $color-accent;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  &__stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    @media (max-width: ($breakpoint-header-mobile)) {
+      gap: 8px;
+      justify-content: flex-end;
+    }
+  }
+
+  &__stat {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+  }
+
+  &__stat-value {
+    font-weight: 700;
+  }
+
+  &__dates {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    @media (max-width: ($breakpoint-header-mobile)) {
+      gap: 8px;
+      justify-content: flex-end;
+    }
+  }
+
+  &__dates-label {
+    font-size: 16px;
+    line-height: 1;
+  }
+}

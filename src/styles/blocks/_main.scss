@@ -1,0 +1,15 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.main {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 100%;
+  padding: 18px 0 24px;
+
+  &__container {
+    @include container;
+    min-width: 0;
+  }
+}

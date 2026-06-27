@@ -1,0 +1,53 @@
+@use "variables" as *;
+
+@mixin container {
+  width: 100%;
+  max-width: $container-width;
+  margin-inline: auto;
+
+  @media (max-width: $breakpoint-desktop) {
+    padding-inline: $container-gutter;
+  }
+}
+
+@mixin stat-text {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+@mixin icon-mask($url) {
+  display: block;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  background-color: $color-black;
+  mask: url($url) center / contain no-repeat;
+  -webkit-mask: url($url) center / contain no-repeat;
+}
+
+@mixin view-icon-grid($color) {
+  background-image:
+    linear-gradient($color, $color),
+    linear-gradient($color, $color),
+    linear-gradient($color, $color),
+    linear-gradient($color, $color),
+    linear-gradient($color, $color),
+    linear-gradient($color, $color),
+    linear-gradient($color, $color),
+    linear-gradient($color, $color),
+    linear-gradient($color, $color);
+  background-size: 6px 6px;
+  background-position:
+    0 0, 8px 0, 16px 0,
+    0 8px, 8px 8px, 16px 8px,
+    0 16px, 8px 16px, 16px 16px;
+  background-repeat: no-repeat;
+}
+
+@mixin view-icon-list($color) {
+  background-image: none;
+  background-color: $color;
+  mask: url("/assets/icons/list.svg") center / 22px 22px no-repeat;
+  -webkit-mask: url("/assets/icons/list.svg") center / 22px 22px no-repeat;
+}
